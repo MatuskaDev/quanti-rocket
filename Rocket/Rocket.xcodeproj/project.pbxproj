@@ -12,6 +12,8 @@
 		7E59C8DB2B8794E800EC442C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E59C8DA2B8794E800EC442C /* Assets.xcassets */; };
 		7E59C8DE2B8794E800EC442C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E59C8DD2B8794E800EC442C /* Preview Assets.xcassets */; };
 		7E59C8E52B87966D00EC442C /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59C8E42B87966D00EC442C /* XCAssets+Generated.swift */; };
+		7E59C8ED2B87ABB900EC442C /* RocketToolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59C8EC2B87ABB900EC442C /* RocketToolkit */; };
+		7E59C8EF2B87ABBC00EC442C /* SharedDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59C8EE2B87ABBC00EC442C /* SharedDomain */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,7 @@
 		7E59C8DD2B8794E800EC442C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7E59C8E42B87966D00EC442C /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCAssets+Generated.swift"; path = "Rocket/XCAssets+Generated.swift"; sourceTree = SOURCE_ROOT; };
 		7E59C8E72B8798DC00EC442C /* SharedDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SharedDomain; sourceTree = "<group>"; };
+		7E59C8EA2B87A75D00EC442C /* RocketToolkit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RocketToolkit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +32,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E59C8ED2B87ABB900EC442C /* RocketToolkit in Frameworks */,
+				7E59C8EF2B87ABBC00EC442C /* SharedDomain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,7 @@
 			children = (
 				7E59C8D52B8794E600EC442C /* Rocket */,
 				7E59C8D42B8794E600EC442C /* Products */,
+				7E59C8EB2B87ABB900EC442C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +65,7 @@
 				7E59C8DA2B8794E800EC442C /* Assets.xcassets */,
 				7E59C8E42B87966D00EC442C /* XCAssets+Generated.swift */,
 				7E59C8E62B8798B000EC442C /* DomainLayer */,
+				7E59C8E82B87A6DD00EC442C /* DataLayer */,
 				7E59C8DC2B8794E800EC442C /* Preview Content */,
 			);
 			path = Rocket;
@@ -80,6 +87,29 @@
 			path = DomainLayer;
 			sourceTree = "<group>";
 		};
+		7E59C8E82B87A6DD00EC442C /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				7E59C8E92B87A74500EC442C /* Toolkits */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		7E59C8E92B87A74500EC442C /* Toolkits */ = {
+			isa = PBXGroup;
+			children = (
+				7E59C8EA2B87A75D00EC442C /* RocketToolkit */,
+			);
+			path = Toolkits;
+			sourceTree = "<group>";
+		};
+		7E59C8EB2B87ABB900EC442C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,6 +126,10 @@
 			dependencies = (
 			);
 			name = Rocket;
+			packageProductDependencies = (
+				7E59C8EC2B87ABB900EC442C /* RocketToolkit */,
+				7E59C8EE2B87ABBC00EC442C /* SharedDomain */,
+			);
 			productName = Rocket;
 			productReference = 7E59C8D32B8794E600EC442C /* Rocket.app */;
 			productType = "com.apple.product-type.application";
@@ -358,6 +392,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7E59C8EC2B87ABB900EC442C /* RocketToolkit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RocketToolkit;
+		};
+		7E59C8EE2B87ABBC00EC442C /* SharedDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedDomain;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7E59C8CB2B8794E500EC442C /* Project object */;
 }

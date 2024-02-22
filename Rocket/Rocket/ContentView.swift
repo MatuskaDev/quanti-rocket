@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import RocketToolkit
+import SharedDomain
 
 struct ContentView: View {
     var body: some View {
@@ -14,6 +16,18 @@ struct ContentView: View {
             Text("Rocket!")
         }
         .padding()
+        .onAppear(perform: {
+            Task {
+                let data: [Rocket]?
+                do {
+                    data = try await RocketRepositoryImpl().fetchRockets()
+                    print(data!.first!.name)
+                }
+                catch {
+                    print(error)
+                }
+            }
+        })
     }
 }
 

@@ -6,7 +6,7 @@ public struct RocketStage {
     public let reusable: Bool
     public let engines: Int
     public let fuelAmount: Double
-    public let burnTime: Double
+    public let burnTime: Double?
 }
 
 extension RocketStage: Decodable {
