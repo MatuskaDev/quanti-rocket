@@ -14,9 +14,8 @@ public struct MockedPreviewWrapper<Content: View>: View {
     var content: Content
     
     public init(@ViewBuilder content: () -> Content) {
-        self.content = content()
-        
         Resolver.registerUseCaseMocks()
+        self.content = content()
     }
     
     public var body: some View {

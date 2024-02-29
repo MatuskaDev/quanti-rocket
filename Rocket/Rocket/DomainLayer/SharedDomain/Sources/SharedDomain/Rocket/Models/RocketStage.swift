@@ -2,7 +2,7 @@
 //  Created by Lukáš Matuška on 22.02.2024.
 //
 
-public struct RocketStage {
+public struct RocketStage: Equatable, Hashable {
     public let reusable: Bool
     public let engines: Int
     public let fuelAmount: Double
