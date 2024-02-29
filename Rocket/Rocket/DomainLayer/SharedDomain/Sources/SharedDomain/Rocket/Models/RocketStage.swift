@@ -7,6 +7,13 @@ public struct RocketStage {
     public let engines: Int
     public let fuelAmount: Double
     public let burnTime: Double?
+    
+    public init(reusable: Bool, engines: Int, fuelAmount: Double, burnTime: Double?) {
+        self.reusable = reusable
+        self.engines = engines
+        self.fuelAmount = fuelAmount
+        self.burnTime = burnTime
+    }
 }
 
 extension RocketStage: Decodable {

@@ -25,9 +25,6 @@ let package = Package(
             dependencies: [
                 .product(name: "SharedDomain", package: "SharedDomain")
             ]
-        ),
-        .testTarget(
-            name: "RocketToolkitTests",
-            dependencies: ["RocketToolkit"]),
+        )
     ]
 )

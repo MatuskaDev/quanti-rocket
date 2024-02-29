@@ -1,7 +1,4 @@
 //
-//  File.swift
-//  
-//
 //  Created by Lukáš Matuška on 22.02.2024.
 //
 

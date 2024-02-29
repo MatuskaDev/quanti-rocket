@@ -12,15 +12,27 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "SharedDomain",
-            targets: ["SharedDomain"]),
+            targets: ["SharedDomain"]
+        ),
+        .library(
+            name: "SharedDomainMocks",
+            targets: ["SharedDomainMocks"]
+        )
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SharedDomain"),
+            name: "SharedDomain"
+        ),
+        .target(
+            name: "SharedDomainMocks",
+            dependencies: [
+                "SharedDomain"
+            ]
+        ),
         .testTarget(
             name: "SharedDomainTests",
-            dependencies: ["SharedDomain"]),
+            dependencies: ["SharedDomain", "SharedDomainMocks"]),
     ]
 )

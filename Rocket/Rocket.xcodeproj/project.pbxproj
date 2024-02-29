@@ -14,6 +14,7 @@
 		7E59C8E52B87966D00EC442C /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59C8E42B87966D00EC442C /* XCAssets+Generated.swift */; };
 		7E59C8ED2B87ABB900EC442C /* RocketToolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59C8EC2B87ABB900EC442C /* RocketToolkit */; };
 		7E59C8EF2B87ABBC00EC442C /* SharedDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59C8EE2B87ABBC00EC442C /* SharedDomain */; };
+		7EA4B7C72B90A33200373E61 /* SharedDomainMocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA4B7C62B90A33200373E61 /* SharedDomainMocks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA4B7C72B90A33200373E61 /* SharedDomainMocks in Frameworks */,
 				7E59C8ED2B87ABB900EC442C /* RocketToolkit in Frameworks */,
 				7E59C8EF2B87ABBC00EC442C /* SharedDomain in Frameworks */,
 			);
@@ -129,6 +131,7 @@
 			packageProductDependencies = (
 				7E59C8EC2B87ABB900EC442C /* RocketToolkit */,
 				7E59C8EE2B87ABBC00EC442C /* SharedDomain */,
+				7EA4B7C62B90A33200373E61 /* SharedDomainMocks */,
 			);
 			productName = Rocket;
 			productReference = 7E59C8D32B8794E600EC442C /* Rocket.app */;
@@ -401,6 +404,10 @@
 		7E59C8EE2B87ABBC00EC442C /* SharedDomain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedDomain;
+		};
+		7EA4B7C62B90A33200373E61 /* SharedDomainMocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedDomainMocks;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
