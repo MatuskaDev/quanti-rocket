@@ -30,6 +30,7 @@
 		7E59C8E42B87966D00EC442C /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCAssets+Generated.swift"; path = "Rocket/XCAssets+Generated.swift"; sourceTree = SOURCE_ROOT; };
 		7E59C8E72B8798DC00EC442C /* SharedDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SharedDomain; sourceTree = "<group>"; };
 		7E59C8EA2B87A75D00EC442C /* RocketToolkit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RocketToolkit; sourceTree = "<group>"; };
+		7E88DFFB2B90AFAB00C85AE7 /* UIToolkit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIToolkit; path = Rocket/DataLayer/Toolkits/UIToolkit; sourceTree = SOURCE_ROOT; };
 		7EA4B7CF2B90AA4600373E61 /* UseCase+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+Injection.swift"; sourceTree = "<group>"; };
 		7EA4B7D12B90AB0800373E61 /* Repositories+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repositories+Injection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +75,7 @@
 				7E59C8D82B8794E600EC442C /* ContentView.swift */,
 				7E59C8DA2B8794E800EC442C /* Assets.xcassets */,
 				7E59C8E42B87966D00EC442C /* XCAssets+Generated.swift */,
+				7E88DFFA2B90AF8900C85AE7 /* PresentationLayer */,
 				7E59C8E62B8798B000EC442C /* DomainLayer */,
 				7E59C8E82B87A6DD00EC442C /* DataLayer */,
 				7E59C8DC2B8794E800EC442C /* Preview Content */,
@@ -118,6 +120,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E88DFFA2B90AF8900C85AE7 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				7E88DFFB2B90AFAB00C85AE7 /* UIToolkit */,
+			);
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		7EA4B7CD2B90AA2800373E61 /* Application */ = {
