@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import Resolver
 
 @main
 struct RocketApp: App {
+    
+    init() {
+        Resolver.registerRepositories()
+        Resolver.registerUseCases()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

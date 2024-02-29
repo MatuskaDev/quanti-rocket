@@ -15,6 +15,10 @@
 		7E59C8ED2B87ABB900EC442C /* RocketToolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59C8EC2B87ABB900EC442C /* RocketToolkit */; };
 		7E59C8EF2B87ABBC00EC442C /* SharedDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59C8EE2B87ABBC00EC442C /* SharedDomain */; };
 		7EA4B7C72B90A33200373E61 /* SharedDomainMocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA4B7C62B90A33200373E61 /* SharedDomainMocks */; };
+		7EA4B7CA2B90AA0800373E61 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA4B7C92B90AA0800373E61 /* Resolver */; };
+		7EA4B7CC2B90AA0800373E61 /* Resolver-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA4B7CB2B90AA0800373E61 /* Resolver-Static */; };
+		7EA4B7D02B90AA4600373E61 /* UseCase+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B7CF2B90AA4600373E61 /* UseCase+Injection.swift */; };
+		7EA4B7D22B90AB0800373E61 /* Repositories+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B7D12B90AB0800373E61 /* Repositories+Injection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,8 @@
 		7E59C8E42B87966D00EC442C /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCAssets+Generated.swift"; path = "Rocket/XCAssets+Generated.swift"; sourceTree = SOURCE_ROOT; };
 		7E59C8E72B8798DC00EC442C /* SharedDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SharedDomain; sourceTree = "<group>"; };
 		7E59C8EA2B87A75D00EC442C /* RocketToolkit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RocketToolkit; sourceTree = "<group>"; };
+		7EA4B7CF2B90AA4600373E61 /* UseCase+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+Injection.swift"; sourceTree = "<group>"; };
+		7EA4B7D12B90AB0800373E61 /* Repositories+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repositories+Injection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,8 @@
 			files = (
 				7EA4B7C72B90A33200373E61 /* SharedDomainMocks in Frameworks */,
 				7E59C8ED2B87ABB900EC442C /* RocketToolkit in Frameworks */,
+				7EA4B7CA2B90AA0800373E61 /* Resolver in Frameworks */,
+				7EA4B7CC2B90AA0800373E61 /* Resolver-Static in Frameworks */,
 				7E59C8EF2B87ABBC00EC442C /* SharedDomain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,7 +70,7 @@
 		7E59C8D52B8794E600EC442C /* Rocket */ = {
 			isa = PBXGroup;
 			children = (
-				7E59C8D62B8794E600EC442C /* RocketApp.swift */,
+				7EA4B7CD2B90AA2800373E61 /* Application */,
 				7E59C8D82B8794E600EC442C /* ContentView.swift */,
 				7E59C8DA2B8794E800EC442C /* Assets.xcassets */,
 				7E59C8E42B87966D00EC442C /* XCAssets+Generated.swift */,
@@ -112,6 +120,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7EA4B7CD2B90AA2800373E61 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7EA4B7CE2B90AA2F00373E61 /* DependencyInjection */,
+				7E59C8D62B8794E600EC442C /* RocketApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7EA4B7CE2B90AA2F00373E61 /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				7EA4B7CF2B90AA4600373E61 /* UseCase+Injection.swift */,
+				7EA4B7D12B90AB0800373E61 /* Repositories+Injection.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +158,8 @@
 				7E59C8EC2B87ABB900EC442C /* RocketToolkit */,
 				7E59C8EE2B87ABBC00EC442C /* SharedDomain */,
 				7EA4B7C62B90A33200373E61 /* SharedDomainMocks */,
+				7EA4B7C92B90AA0800373E61 /* Resolver */,
+				7EA4B7CB2B90AA0800373E61 /* Resolver-Static */,
 			);
 			productName = Rocket;
 			productReference = 7E59C8D32B8794E600EC442C /* Rocket.app */;
@@ -161,6 +189,9 @@
 				Base,
 			);
 			mainGroup = 7E59C8CA2B8794E500EC442C;
+			packageReferences = (
+				7EA4B7C82B90AA0800373E61 /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 7E59C8D42B8794E600EC442C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -187,7 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EA4B7D22B90AB0800373E61 /* Repositories+Injection.swift in Sources */,
 				7E59C8E52B87966D00EC442C /* XCAssets+Generated.swift in Sources */,
+				7EA4B7D02B90AA4600373E61 /* UseCase+Injection.swift in Sources */,
 				7E59C8D92B8794E600EC442C /* ContentView.swift in Sources */,
 				7E59C8D72B8794E600EC442C /* RocketApp.swift in Sources */,
 			);
@@ -396,6 +429,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		7EA4B7C82B90AA0800373E61 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		7E59C8EC2B87ABB900EC442C /* RocketToolkit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -408,6 +452,16 @@
 		7EA4B7C62B90A33200373E61 /* SharedDomainMocks */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedDomainMocks;
+		};
+		7EA4B7C92B90AA0800373E61 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EA4B7C82B90AA0800373E61 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+		7EA4B7CB2B90AA0800373E61 /* Resolver-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EA4B7C82B90AA0800373E61 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = "Resolver-Static";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
