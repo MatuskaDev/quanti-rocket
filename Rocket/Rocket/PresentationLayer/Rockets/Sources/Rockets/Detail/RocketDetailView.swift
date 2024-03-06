@@ -7,51 +7,59 @@ import SharedDomain
 import SharedDomainMocks
 import UIToolkit
 
-public struct RocketDetailView: View {
+struct RocketDetailView: View {
     
-    let rocket: Rocket
+    @ObservedObject var model: RocketDetailViewModel
     
-    public init(rocket: Rocket) {
-        self.rocket = rocket
+    init(model: RocketDetailViewModel) {
+        self.model = model
     }
     
-    public var body: some View {
-        ScrollView {
-            GeometryReader { geo in
+    var body: some View {
+        GeometryReader { geo in
+            ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Overview").bold()
-                    Text(rocket.description)
+                    Text(model.state.rocket.description)
                         .fixedSize(horizontal: false, vertical: true)
                     
                     Text("Parameters").bold()
                     HStack(spacing: 20) {
-                        let width = geo.size.width - 40
-                        ParameterTile(main: "\(String(format: "%.1f", rocket.height.meters))m",
+                        let width = geo.size.width - 40 - 30
+                        ParameterTile(main: "\(String(format: "%.1f", model.state.rocket.height.meters))m",
                                       label: "height",
                                       size: width / 3)
-                        ParameterTile(main: "\(String(format: "%.1f", rocket.diameter.meters))m",
+                        ParameterTile(main: "\(String(format: "%.1f", model.state.rocket.diameter.meters))m",
                                       label: "diameter",
                                       size: width / 3)
-                        ParameterTile(main: "\(String(format: "%.1f", rocket.mass.kg/1000))t",
+                        ParameterTile(main: "\(String(format: "%.1f", model.state.rocket.mass.kg/1000))t",
                                       label: "mass",
                                       size: width / 3)
                     }
                     
-                    StageTile(stage: rocket.firstStage, title: "First stage")
-                    StageTile(stage: rocket.secondStage, title: "Second stage")
+                    StageTile(stage: model.state.rocket.firstStage, title: "First stage")
+                    StageTile(stage: model.state.rocket.secondStage, title: "Second stage")
                     
                     Text("Photos").bold()
                     VStack(spacing: 10) {
-                        ForEach(rocket.imageUrls, id:\.self) { imgUrl in
+                        ForEach(model.state.rocket.imageUrls, id:\.self) { imgUrl in
                             AsyncImage(url: URL(string: imgUrl)) { image in image.resizable().scaledToFit()
                             } placeholder: { ProgressView() }
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
                         }
                     }
+                    
+                }
+                .padding(15)
+            }
+        }
+        .navigationTitle(model.state.rocket.name)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("Launch") {
+                    model.onIntent(.launchRocket)
                 }
             }
-            .padding()
-            .navigationTitle(rocket.name)
         }
     }
     
@@ -113,5 +121,7 @@ public struct RocketDetailView: View {
 }
 
 #Preview {
-    RocketDetailView(rocket: .stub)
+    NavigationStack {
+        RocketDetailView(model: .init(flowController: nil, rocket: .stub))
+    }
 }

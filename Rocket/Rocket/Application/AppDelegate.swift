@@ -22,7 +22,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UIWindowSceneDelega
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         
-        
         // Register all dependencies
         Resolver.registerRepositories()
         Resolver.registerUseCases()
