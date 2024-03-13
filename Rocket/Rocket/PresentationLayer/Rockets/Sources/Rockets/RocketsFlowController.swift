@@ -44,6 +44,7 @@ extension RocketsFlowController {
     private func showRocketDetailFor(rocket: Rocket) {
         let vm = RocketDetailViewModel(flowController: self, rocket: rocket)
         let vc = BaseHostingController(rootView: RocketDetailView(model: vm))
+        vc.title = rocket.name
         navigationController.show(vc, sender: nil)
     }
     

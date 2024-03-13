@@ -53,7 +53,6 @@ struct RocketDetailView: View {
                 .padding(15)
             }
         }
-        .navigationTitle(model.state.rocket.name)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("Launch") {
