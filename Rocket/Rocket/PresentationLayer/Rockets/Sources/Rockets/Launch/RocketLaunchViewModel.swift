@@ -5,17 +5,30 @@
 
 import UIToolkit
 import SwiftUI
-import CoreMotion
+import SharedDomain
+import Resolver
 
-final class RocketLaunchViewModel: CMMotionManager, ViewModel, ObservableObject {
+final class RocketLaunchViewModel: ViewModel, ObservableObject {
+    
+    @Injected var startMonitoringUseCase: StartMonitoringDeviceMotionUseCase
+    @Injected var stopMonitoringUseCase: StopMonitoringDeviceMotionUseCase
+    
+    public init() {
+        // Add observer for device moved up notification
+        NotificationCenter.default.addObserver(self, selector: #selector(onDeviceUpMovement), name: DeviceMotionNotification.onDeviceUpMovement, object: nil)
+    }
     
     // MARK: Lifecycle
     func onAppear() {
-        startMotionUpdates()
+        do {
+            try startMonitoringUseCase.execute()
+        } catch {
+            print("Error: Device motion not availible")
+        }
     }
     
     func onDisappear() {
-        stopDeviceMotionUpdates()
+        stopMonitoringUseCase.execute()
     }
     
     // MARK: State
@@ -37,21 +50,10 @@ final class RocketLaunchViewModel: CMMotionManager, ViewModel, ObservableObject 
         }
     }
     
-    // MARK: Device motion
-    
-    private var motionQueue = OperationQueue()
-    private func startMotionUpdates() {
-        if isDeviceMotionAvailable {
-            startDeviceMotionUpdates(to: self.motionQueue, withHandler: { (data, error) in
-                if let data {
-                    if data.userAcceleration.y > 0.4 {
-                        DispatchQueue.main.async {
-                            self.launchRocket()
-                        }
-                        self.stopDeviceMotionUpdates()
-                    }
-                }
-            })
+    // Handle device motion notification
+    @objc private func onDeviceUpMovement() {
+        DispatchQueue.main.async {
+            self.launchRocket()
         }
     }
 }

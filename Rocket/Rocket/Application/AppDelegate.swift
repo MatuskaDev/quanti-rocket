@@ -23,6 +23,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UIWindowSceneDelega
     ) -> Bool {
         
         // Register all dependencies
+        Resolver.registerProviders()
         Resolver.registerRepositories()
         Resolver.registerUseCases()
         

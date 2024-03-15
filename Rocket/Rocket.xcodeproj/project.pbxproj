@@ -14,6 +14,9 @@
 		7E6CC4FC2B98F1B700FA5CB0 /* Rockets in Frameworks */ = {isa = PBXBuildFile; productRef = 7E6CC4FB2B98F1B700FA5CB0 /* Rockets */; };
 		7E6CC4FE2B98F2DA00FA5CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6CC4FD2B98F2DA00FA5CB0 /* AppDelegate.swift */; };
 		7E6CC5002B98F8FF00FA5CB0 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E6CC4FF2B98F8FF00FA5CB0 /* AppIcon.xcassets */; };
+		7E724F402BA39D9D00DE1796 /* DeviceMotionToolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E724F3F2BA39D9D00DE1796 /* DeviceMotionToolkit */; };
+		7E724F422BA39DA100DE1796 /* DeviceMotionProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 7E724F412BA39DA100DE1796 /* DeviceMotionProvider */; };
+		7E724F442BA39DC100DE1796 /* Providers+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E724F432BA39DC100DE1796 /* Providers+Injection.swift */; };
 		7E88DFFF2B90B84D00C85AE7 /* UIToolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E88DFFE2B90B84D00C85AE7 /* UIToolkit */; };
 		7EA4B7C72B90A33200373E61 /* SharedDomainMocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA4B7C62B90A33200373E61 /* SharedDomainMocks */; };
 		7EA4B7CA2B90AA0800373E61 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA4B7C92B90AA0800373E61 /* Resolver */; };
@@ -32,6 +35,9 @@
 		7E6CC4FD2B98F2DA00FA5CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E6CC4FF2B98F8FF00FA5CB0 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		7E6CC5012B98FC1F00FA5CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E724F3D2BA3216400DE1796 /* DeviceMotionProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DeviceMotionProvider; sourceTree = "<group>"; };
+		7E724F3E2BA324E600DE1796 /* DeviceMotionToolkit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DeviceMotionToolkit; sourceTree = "<group>"; };
+		7E724F432BA39DC100DE1796 /* Providers+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Providers+Injection.swift"; sourceTree = "<group>"; };
 		7E88DFFB2B90AFAB00C85AE7 /* UIToolkit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIToolkit; path = Rocket/DataLayer/Toolkits/UIToolkit; sourceTree = SOURCE_ROOT; };
 		7EA4B7CF2B90AA4600373E61 /* UseCase+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+Injection.swift"; sourceTree = "<group>"; };
 		7EA4B7D12B90AB0800373E61 /* Repositories+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repositories+Injection.swift"; sourceTree = "<group>"; };
@@ -43,12 +49,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EA4B7C72B90A33200373E61 /* SharedDomainMocks in Frameworks */,
+				7E724F422BA39DA100DE1796 /* DeviceMotionProvider in Frameworks */,
 				7E59C8ED2B87ABB900EC442C /* RocketToolkit in Frameworks */,
 				7E6CC4FC2B98F1B700FA5CB0 /* Rockets in Frameworks */,
 				7EA4B7CA2B90AA0800373E61 /* Resolver in Frameworks */,
 				7EA4B7CC2B90AA0800373E61 /* Resolver-Static in Frameworks */,
 				7E59C8EF2B87ABBC00EC442C /* SharedDomain in Frameworks */,
 				7E88DFFF2B90B84D00C85AE7 /* UIToolkit in Frameworks */,
+				7E724F402BA39D9D00DE1796 /* DeviceMotionToolkit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				7E59C8E92B87A74500EC442C /* Toolkits */,
+				7E724F3C2BA3213900DE1796 /* Providers */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -112,6 +121,7 @@
 		7E59C8E92B87A74500EC442C /* Toolkits */ = {
 			isa = PBXGroup;
 			children = (
+				7E724F3E2BA324E600DE1796 /* DeviceMotionToolkit */,
 				7E59C8EA2B87A75D00EC442C /* RocketToolkit */,
 			);
 			path = Toolkits;
@@ -122,6 +132,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E724F3C2BA3213900DE1796 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				7E724F3D2BA3216400DE1796 /* DeviceMotionProvider */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		7E88DFFA2B90AF8900C85AE7 /* PresentationLayer */ = {
@@ -149,6 +167,7 @@
 			children = (
 				7EA4B7CF2B90AA4600373E61 /* UseCase+Injection.swift */,
 				7EA4B7D12B90AB0800373E61 /* Repositories+Injection.swift */,
+				7E724F432BA39DC100DE1796 /* Providers+Injection.swift */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";
@@ -177,6 +196,8 @@
 				7EA4B7CB2B90AA0800373E61 /* Resolver-Static */,
 				7E88DFFE2B90B84D00C85AE7 /* UIToolkit */,
 				7E6CC4FB2B98F1B700FA5CB0 /* Rockets */,
+				7E724F3F2BA39D9D00DE1796 /* DeviceMotionToolkit */,
+				7E724F412BA39DA100DE1796 /* DeviceMotionProvider */,
 			);
 			productName = Rocket;
 			productReference = 7E59C8D32B8794E600EC442C /* Rocket.app */;
@@ -238,6 +259,7 @@
 				7EA4B7D22B90AB0800373E61 /* Repositories+Injection.swift in Sources */,
 				7E6CC4FE2B98F2DA00FA5CB0 /* AppDelegate.swift in Sources */,
 				7EA4B7D02B90AA4600373E61 /* UseCase+Injection.swift in Sources */,
+				7E724F442BA39DC100DE1796 /* Providers+Injection.swift in Sources */,
 				7E6CC4FA2B98F14900FA5CB0 /* AppFlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +492,14 @@
 		7E6CC4FB2B98F1B700FA5CB0 /* Rockets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Rockets;
+		};
+		7E724F3F2BA39D9D00DE1796 /* DeviceMotionToolkit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DeviceMotionToolkit;
+		};
+		7E724F412BA39DA100DE1796 /* DeviceMotionProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DeviceMotionProvider;
 		};
 		7E88DFFE2B90B84D00C85AE7 /* UIToolkit */ = {
 			isa = XCSwiftPackageProductDependency;

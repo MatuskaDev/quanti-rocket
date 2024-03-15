@@ -8,9 +8,11 @@
 import Resolver
 import SharedDomain
 import RocketToolkit
+import DeviceMotionToolkit
 
 extension Resolver {
     static func registerRepositories() {
         register { RocketRepositoryImpl() }.implements(RocketRepository.self)
+        register { DeviceMotionRepositoryImpl(provider: self.resolve() )}.implements(DeviceMotionRepository.self)
     }
 }
