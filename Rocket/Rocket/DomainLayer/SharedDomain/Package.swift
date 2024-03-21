@@ -20,19 +20,23 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/hmlongco/Resolver.git", .upToNextMinor(from: "1.5.0"))
+        .package(url: "https://github.com/hmlongco/Resolver.git", .upToNextMinor(from: "1.5.0")),
+        .package(url: "https://github.com/Matejkob/swift-spyable", from: "0.3.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SharedDomain"
+            name: "SharedDomain",
+            dependencies: [
+                .product(name: "Spyable", package: "swift-spyable")
+            ]
         ),
         .target(
             name: "SharedDomainMocks",
             dependencies: [
                 "SharedDomain",
-                .product(name: "Resolver", package: "Resolver")
+                .product(name: "Resolver", package: "Resolver"),
             ]
         ),
         .testTarget(

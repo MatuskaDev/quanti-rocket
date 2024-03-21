@@ -22,8 +22,10 @@ final class RocketLaunchViewModel: ViewModel, ObservableObject {
     func onAppear() {
         do {
             try startMonitoringUseCase.execute()
+            state.canLaunch = true
         } catch {
             print("Error: Device motion not availible")
+            state.canLaunch = false
         }
     }
     
@@ -34,6 +36,7 @@ final class RocketLaunchViewModel: ViewModel, ObservableObject {
     // MARK: State
     @Published private(set) var state: State = State()
     struct State {
+        var canLaunch: Bool? = nil
         var isLaunched: Bool = false
         var animationValue: Double = 0.6
     }
