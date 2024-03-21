@@ -1,7 +1,9 @@
 //
 //  Created by Lukáš Matuška on 22.02.2024.
 //
+import Spyable
 
+@Spyable
 public protocol GetRocketsUseCase {
     func execute() async throws -> [Rocket]?
 }

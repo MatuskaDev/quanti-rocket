@@ -4,7 +4,6 @@
 
 import SwiftUI
 import SharedDomain
-import SharedDomainMocks
 import UIToolkit
 
 struct RocketDetailView: View {

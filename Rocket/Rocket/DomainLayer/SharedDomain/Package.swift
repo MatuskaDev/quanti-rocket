@@ -15,12 +15,11 @@ let package = Package(
             targets: ["SharedDomain"]
         ),
         .library(
-            name: "SharedDomainMocks",
-            targets: ["SharedDomainMocks"]
+            name: "SharedDomainStubs",
+            targets: ["SharedDomainStubs"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/hmlongco/Resolver.git", .upToNextMinor(from: "1.5.0")),
         .package(url: "https://github.com/Matejkob/swift-spyable", from: "0.3.0")
     ],
     targets: [
@@ -33,14 +32,13 @@ let package = Package(
             ]
         ),
         .target(
-            name: "SharedDomainMocks",
+            name: "SharedDomainStubs",
             dependencies: [
                 "SharedDomain",
-                .product(name: "Resolver", package: "Resolver"),
             ]
         ),
         .testTarget(
             name: "SharedDomainTests",
-            dependencies: ["SharedDomain", "SharedDomainMocks"]),
+            dependencies: ["SharedDomain", "SharedDomainStubs"]),
     ]
 )

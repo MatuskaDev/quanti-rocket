@@ -14,6 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "SharedDomain", path: "../../DomainLayer/SharedDomain"),
+        .package(name: "DependencyInjection", path: "../../Application/DependencyInjection")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,7 +23,7 @@ let package = Package(
             name: "UIToolkit",
             dependencies: [
                 .product(name: "SharedDomain", package: "SharedDomain"),
-                .product(name: "SharedDomainMocks", package: "SharedDomain"),
+                .product(name: "DependencyInjectionMocks", package: "DependencyInjection")
             ]
         )
     ]

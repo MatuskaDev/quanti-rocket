@@ -10,6 +10,7 @@ import SharedDomain
 import UIKit
 import UIToolkit
 import SwiftUI
+import DependencyInjection
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate, UIWindowSceneDelegate {

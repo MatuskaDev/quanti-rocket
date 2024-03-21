@@ -4,7 +4,7 @@
 
 import SwiftUI
 import Resolver
-import SharedDomainMocks
+import DependencyInjectionMocks
 
 /**
  Registers use case mocks for SwftiUI previews

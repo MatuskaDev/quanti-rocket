@@ -9,7 +9,7 @@ import Resolver
 import SharedDomain
 
 extension Resolver {
-    static func registerUseCases() {
+    public static func registerUseCases() {
         register { GetRocketsUseCaseImpl(repository: self.resolve() )}.implements(GetRocketsUseCase.self)
         register { StartMonitoringDeviceMotionUseCaseImpl(repository: self.resolve() )}.implements(StartMonitoringDeviceMotionUseCase.self)
         register { StopMonitoringDeviceMotionUseCaseImpl(repository: self.resolve() )}.implements(StopMonitoringDeviceMotionUseCase.self)

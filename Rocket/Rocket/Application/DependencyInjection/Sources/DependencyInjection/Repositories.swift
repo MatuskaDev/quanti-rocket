@@ -11,7 +11,7 @@ import RocketToolkit
 import DeviceMotionToolkit
 
 extension Resolver {
-    static func registerRepositories() {
+    public static func registerRepositories() {
         register { RocketRepositoryImpl() }.implements(RocketRepository.self)
         register { DeviceMotionRepositoryImpl(provider: self.resolve() )}.implements(DeviceMotionRepository.self)
     }

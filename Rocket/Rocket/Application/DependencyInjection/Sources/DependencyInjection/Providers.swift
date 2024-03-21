@@ -10,7 +10,7 @@ import SharedDomain
 import DeviceMotionProvider
 
 extension Resolver {
-    static func registerProviders() {
+    public static func registerProviders() {
         register { SystemDeviceMotionProvider() }.implements(DeviceMotionProvider.self)
     }
 }

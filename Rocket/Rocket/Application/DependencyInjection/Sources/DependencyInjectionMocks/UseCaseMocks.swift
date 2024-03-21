@@ -1,13 +1,17 @@
 //
-//  Created by Lukáš Matuška on 29.02.2024.
+//  Created by Lukáš Matuška on 21.03.2024.
 //
 
 @testable import SharedDomain
 import Resolver
+import SharedDomainStubs
 
 extension Resolver {
     public static func registerUseCaseMocks() {
-        register { GetRocketsUseCaseMock(executeReturnValue: [.stub]) }.implements(GetRocketsUseCase.self)
+        
+        let getRocketsUseCaseSpy = GetRocketsUseCaseSpy()
+        getRocketsUseCaseSpy.executeReturnValue = [Rocket.stub]
+        register { getRocketsUseCaseSpy }.implements(GetRocketsUseCase.self)
         register { StartMonitoringDeviceMotionUseCaseSpy() }.implements(StartMonitoringDeviceMotionUseCase.self)
         register { StopMonitoringDeviceMotionUseCaseSpy() }.implements(StopMonitoringDeviceMotionUseCase.self)
     }
