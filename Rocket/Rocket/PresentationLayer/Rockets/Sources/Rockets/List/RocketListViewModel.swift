@@ -7,7 +7,7 @@ import SharedDomain
 import SwiftUI
 import Resolver
 
-public class RocketListViewModel: ObservableObject, ViewModel {
+public class RocketListViewModel: BaseViewModel, ObservableObject, ViewModel {
     
     private weak var flowController: FlowController?
     
@@ -18,18 +18,16 @@ public class RocketListViewModel: ObservableObject, ViewModel {
     }
 
     // MARK: Lifecycle
-    public func onAppear() {
-        Task {
-            do {
-                self.state.rockets = try await getRocketsUseCase.execute()
-            } catch {
-                print("Error")
+    override public func onAppear() {
+        executeTask(
+            Task {
+                do {
+                    self.state.rockets = try await getRocketsUseCase.execute()
+                } catch {
+                    print("Error")
+                }
             }
-        }
-    }
-    
-    public func onDisappear() {
-        //
+        )
     }
     
     // MARK: State
@@ -56,13 +54,15 @@ public class RocketListViewModel: ObservableObject, ViewModel {
     // MARK: Private
     
     func fetchNewData() {
-        Task {
-            do {
-                self.state.rockets = try await getRocketsUseCase.execute()
-            } catch {
-                print("Error")
+        executeTask(
+            Task {
+                do {
+                    self.state.rockets = try await getRocketsUseCase.execute()
+                } catch {
+                    print("Error")
+                }
             }
-        }
+        )
     }
     
     func showRocketDetail(rocket: Rocket) {

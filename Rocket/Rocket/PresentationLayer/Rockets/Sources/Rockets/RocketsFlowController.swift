@@ -6,7 +6,7 @@ import UIToolkit
 import SharedDomain
 import UIKit
 
-enum RocketsFlow: Flow {
+enum RocketsFlow: Flow, Equatable {
     case rockets(Rockets)
     
     enum Rockets: Equatable {
